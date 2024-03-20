@@ -2,9 +2,6 @@
 #define graph_h
 
 
-#define EDGE struct edge
-
-
 //      returns index if unchecked vertex with min path
 int min_index(long *array, short *checked, int n) {
     long long min = LLONG_MAX;
