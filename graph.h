@@ -4,7 +4,7 @@
 
 //      returns index if unchecked vertex with min path
 int min_index(long *array, short *checked, int n) {
-    long long min = LLONG_MAX;
+    long min = LONG_MAX;
     int min_index = -1;
     
     for (int i = 0; i < n; i++)
