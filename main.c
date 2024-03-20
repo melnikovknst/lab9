@@ -7,6 +7,7 @@
 
 
 int main(void) {
+    FILE* file = fopen("in.txt", "r");
     short overflow = 0;
     short buf_finish;
     short buf_start;
@@ -16,7 +17,7 @@ int main(void) {
     short f;
     int m;
     
-    scanf("%hi %hi %hi %d", &n, &s, &f, &m);
+    fscanf(file, "%hi %hi %hi %d", &n, &s, &f, &m);
 //    check the correctness of input
     if (n < 0 || n > 500) {
         printf("bad number of vertices\n");
@@ -44,12 +45,11 @@ int main(void) {
     pathes[s-1] = 0;
 
     for (int i = 0; i < m; i++) {
-        if (getchar() == EOF) {
+        if(fscanf("%hi %hi %li", &buf_start, &buf_finish, &buf_len) != 3) {
+            fclose(file);
             printf("bad number of lines\n");
             return 0;
         }
-            
-        scanf("%hi %hi %li", &buf_start, &buf_finish, &buf_len);
         
 //        check the correctness of input
         if (buf_start < 1 || buf_start > n ||
@@ -94,6 +94,7 @@ int main(void) {
     }
     puts("");
     
+    fclose(file);
     free(pathes);
     free(checked);
     for (int i = 0; i < n; i++)
