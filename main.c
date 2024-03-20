@@ -6,6 +6,10 @@
 #include "graph.h"
 
 
+#define VERTEX_MAX 5000
+#define EDGES_MAX n*(n-1)/2
+
+
 int main(void) {
     FILE* file = fopen("in.txt", "r");
     short overflow = 0;
@@ -19,11 +23,11 @@ int main(void) {
     
     fscanf(file, "%hi %hi %hi %d", &n, &s, &f, &m);
 //    check the correctness of input
-    if (n < 0 || n > 500) {
+    if (n < 0 || n > VERTEX_MAX) {
         printf("bad number of vertices\n");
         return 0;
     }
-    if (m < 0 || m > n*(n-1)/2) {
+    if (m < 0 || m > EDGES_MAX) {
         printf("bad number of edges\n");
         return 0;
     }
