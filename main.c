@@ -49,7 +49,7 @@ int main(void) {
     pathes[s-1] = 0;
 
     for (int i = 0; i < m; i++) {
-        if(fscanf("%hi %hi %li", &buf_start, &buf_finish, &buf_len) != 3) {
+        if(fscanf(file, "%hi %hi %li", &buf_start, &buf_finish, &buf_len) != 3) {
             fclose(file);
             printf("bad number of lines\n");
             return 0;
